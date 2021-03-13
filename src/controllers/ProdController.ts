@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm'
 import Prod from '../models/Products';
+import prodView from '../views/prod_list';
 
 export default {
 
@@ -10,8 +11,7 @@ export default {
 
         const prods = await prodsRepository.find();
 
-        return response.json(prods);
-    },
+        return response.json(prodView.renderMany(prods));    },
 
     //controller para listar um usuario
     async show(request: Request, response: Response){
@@ -20,7 +20,7 @@ export default {
 
         const prod = await prodsRepository.findOneOrFail(id);
 
-        return response.json(prod);
+        return response.json(prodView.render(prod));
     },
 
     async delete(request: Request, response: Response){
@@ -31,7 +31,7 @@ export default {
 
         const prods = await prodsRepository.find();
 
-        return response.json(prods);
+        return response.json(prodView.renderMany(prods)); 
     },
 
     //controller para criar um usuario no banco

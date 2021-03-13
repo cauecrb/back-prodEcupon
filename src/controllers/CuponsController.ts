@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm'
 import Cupon from '../models/Cupons';
+import cuponView from '../views/cupons_list';
 
 export default {
 
@@ -10,7 +11,7 @@ export default {
 
         const cupons = await cuponsRepository.find();
 
-        return response.json(cupons);
+        return response.json(cuponView.renderMany(cupons));
     },
 
     //controller para listar um usuario
@@ -20,7 +21,7 @@ export default {
 
         const cupon = await cuponsRepository.findOneOrFail(id);
 
-        return response.json(cupon);
+        return response.json(cuponView.render(cupon));
     },
 
     async delete(request: Request, response: Response){
@@ -31,7 +32,7 @@ export default {
 
         const cupons = await cuponsRepository.find();
 
-        return response.json(cupons);
+        return response.json(cuponView.renderMany(cupons));
     },
 
     //controller para criar um usuario no banco
