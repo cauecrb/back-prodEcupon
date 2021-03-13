@@ -1,0 +1,9 @@
+yarn add express
+yarn add @types/express
+yarn add typescript -D
+yarn add ts-node-dev -D
+yarn add typeorm pg
+yarn add bcryptjs
+yarn add @types/bcryptjs -D
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken -D
