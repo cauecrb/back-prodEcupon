@@ -42,6 +42,7 @@ export default {
             descricao,
             valor,
             prod,
+            eporcentagem,
         } = request.body;
     
         const cuponsRepository = getRepository(Cupon);
@@ -51,6 +52,7 @@ export default {
             descricao,
             valor,
             prod,
+            eporcentagem,
         });
     
         await cuponsRepository.save(cupon);

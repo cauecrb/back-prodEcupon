@@ -30,6 +30,10 @@ export class createCupons1615583761230 implements MigrationInterface {
                     name: 'prod',
                     type: 'integer',
                 },
+                {
+                    name: 'eporcentagem',
+                    type: 'boolean',
+                },
             ],
         }))
     }
